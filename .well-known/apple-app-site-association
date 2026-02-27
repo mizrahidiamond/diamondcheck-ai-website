@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "TEAMID.com.diamondcheckai.app",
+        "paths": [
+          "/ref/*"
+        ]
+      }
+    ]
+  }
+}
