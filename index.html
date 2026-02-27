@@ -48,6 +48,70 @@
       font-size: 0.9375rem;
       color: var(--text-muted);
     }
+    /* Phone showcase */
+    .showcase {
+      padding: 60px 0;
+      overflow: hidden;
+    }
+    .showcase .section-title,
+    .showcase .section-subtitle {
+      text-align: center;
+    }
+    .phone-row {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 40px;
+      padding: 0 8px;
+    }
+    .phone-frame {
+      flex: 0 0 auto;
+      width: 220px;
+      border-radius: 28px;
+      border: 3px solid rgba(201, 168, 76, 0.2);
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255,255,255,0.04);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .phone-frame:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 56px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(201, 168, 76, 0.15);
+    }
+    .phone-frame img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .phone-label {
+      text-align: center;
+      margin-top: 14px;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.03em;
+    }
+    @media (max-width: 720px) {
+      .phone-row {
+        gap: 14px;
+      }
+      .phone-frame {
+        width: 160px;
+        border-radius: 22px;
+      }
+    }
+    @media (max-width: 520px) {
+      .phone-row {
+        gap: 10px;
+      }
+      .phone-frame {
+        width: 30vw;
+        border-radius: 18px;
+        border-width: 2px;
+      }
+      .phone-label {
+        font-size: 0.6875rem;
+      }
+    }
     .cta-section {
       text-align: center;
       padding: 60px 0 80px;
@@ -93,6 +157,34 @@
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
           Download on the App Store
         </a>
+      </div>
+    </section>
+
+    <!-- App Screenshots -->
+    <section class="showcase">
+      <div class="container">
+        <h2 class="section-title">See it in action</h2>
+        <p class="section-subtitle">A complete diamond report — specs, pricing, and clarity — in one scan.</p>
+        <div class="phone-row">
+          <div>
+            <div class="phone-frame">
+              <img src="/assets/screenshots/specs-analysis.png" alt="Diamond specs analysis showing color, clarity, depth, and table ratings" width="1206" height="2622" loading="lazy">
+            </div>
+            <p class="phone-label">Specs Analysis</p>
+          </div>
+          <div>
+            <div class="phone-frame">
+              <img src="/assets/screenshots/price-analysis.png" alt="Diamond price analysis with fair value, market range, and price breakdown" width="1206" height="2622" loading="lazy">
+            </div>
+            <p class="phone-label">Price Analysis</p>
+          </div>
+          <div>
+            <div class="phone-frame">
+              <img src="/assets/screenshots/clarity-analysis.png" alt="Clarity analysis showing inclusion types and expert verdict" width="1206" height="2622" loading="lazy">
+            </div>
+            <p class="phone-label">Clarity Analysis</p>
+          </div>
+        </div>
       </div>
     </section>
 
