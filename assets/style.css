@@ -211,6 +211,7 @@ img {
   border: 1px solid rgba(201, 168, 76, 0.08);
   border-radius: var(--radius);
   padding: 28px;
+  text-align: center;
 }
 
 .card-icon {
@@ -221,7 +222,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 16px;
+  margin: 0 auto 16px;
   font-size: 1.25rem;
 }
 
