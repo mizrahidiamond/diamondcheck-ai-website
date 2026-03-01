@@ -151,13 +151,25 @@
   </div>
 
   <script>
-    // Read referral code from URL parameter
-    var params = new URLSearchParams(window.location.search);
-    var code = params.get('code');
-    if (code) {
+    (function() {
+      var params = new URLSearchParams(window.location.search);
+      var code = params.get('code');
+      if (!code) return;
+
+      // Show referral code on page
       document.getElementById('ref-code-value').textContent = code;
       document.getElementById('ref-code-display').style.display = 'inline-block';
-    }
+
+      // Attempt to open the app via custom URL scheme
+      var deepLink = 'diamondcheckai://referral?code=' + encodeURIComponent(code);
+      window.location.href = deepLink;
+
+      // After 2 seconds, if we're still here the app didn't open — scroll to download button
+      setTimeout(function() {
+        var btn = document.querySelector('.btn-gold');
+        if (btn) btn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 2000);
+    })();
   </script>
 </body>
 </html>
