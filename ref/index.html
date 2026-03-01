@@ -160,9 +160,11 @@
       document.getElementById('ref-code-value').textContent = code;
       document.getElementById('ref-code-display').style.display = 'inline-block';
 
-      // Attempt to open the app via custom URL scheme
-      var deepLink = 'diamondcheckai://referral?code=' + encodeURIComponent(code);
-      window.location.href = deepLink;
+      // Attempt to open the app via custom URL scheme (hidden iframe avoids Safari error dialog)
+      var iframe = document.createElement('iframe');
+      iframe.style.display = 'none';
+      iframe.src = 'diamondcheckai://referral?code=' + encodeURIComponent(code);
+      document.body.appendChild(iframe);
 
       // After 2 seconds, if we're still here the app didn't open — scroll to download button
       setTimeout(function() {
