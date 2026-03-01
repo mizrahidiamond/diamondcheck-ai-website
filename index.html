@@ -127,6 +127,55 @@
     .phone-row > div:nth-child(1) .phone-frame { transition-delay: 0s; }
     .phone-row > div:nth-child(2) .phone-frame { transition-delay: 0.12s; }
     .phone-row > div:nth-child(3) .phone-frame { transition-delay: 0.24s; }
+    /* Lightbox */
+    .phone-frame { cursor: pointer; }
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(0, 0, 0, 0.92);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s;
+    }
+    .lightbox.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 20px;
+      box-shadow: 0 12px 60px rgba(0, 0, 0, 0.6);
+      transform: scale(0.92);
+      transition: transform 0.3s ease;
+    }
+    .lightbox.active img {
+      transform: scale(1);
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      width: 40px;
+      height: 40px;
+      border: none;
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+      font-size: 1.5rem;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .lightbox-close:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
     .cta-section {
       text-align: center;
       padding: 60px 0 80px;
@@ -298,6 +347,12 @@
 
   </div>
 
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightbox-close">&times;</button>
+    <img src="" alt="Screenshot preview" id="lightbox-img">
+  </div>
+
   <script>
     var observer = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
@@ -311,6 +366,36 @@
 
     var showcase = document.querySelector('.phone-row');
     if (showcase) observer.observe(showcase);
+
+    // Lightbox
+    var lightbox = document.getElementById('lightbox');
+    var lightboxImg = document.getElementById('lightbox-img');
+    var lightboxClose = document.getElementById('lightbox-close');
+
+    document.querySelectorAll('.phone-frame').forEach(function(frame) {
+      frame.addEventListener('click', function() {
+        var img = frame.querySelector('img');
+        if (img) {
+          lightboxImg.src = img.src;
+          lightboxImg.alt = img.alt;
+          lightbox.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', function(e) {
+      if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLightbox();
+    });
   </script>
 </body>
 </html>
