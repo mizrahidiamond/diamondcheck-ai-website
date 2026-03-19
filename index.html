@@ -299,6 +299,76 @@
     .lightbox-close:hover {
       background: rgba(255, 255, 255, 0.25);
     }
+    /* Testimonials */
+    .testimonials-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .testimonial {
+      background: var(--navy-card);
+      border: 1px solid rgba(201, 168, 76, 0.08);
+      border-radius: var(--radius);
+      padding: 24px;
+      text-align: center;
+    }
+    .testimonial blockquote {
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--text);
+      font-weight: 500;
+      line-height: 1.5;
+      margin: 0;
+    }
+    .testimonial-author {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      margin-top: 10px;
+    }
+    @media (min-width: 640px) {
+      .testimonials-row {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    /* Persona grid */
+    .persona-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .persona {
+      background: var(--navy-card);
+      border: 1px solid rgba(201, 168, 76, 0.08);
+      border-radius: var(--radius);
+      padding: 24px;
+      text-align: center;
+    }
+    .persona-icon {
+      font-size: 1.5rem;
+      display: block;
+      margin-bottom: 12px;
+    }
+    .persona h3 {
+      font-size: 1rem;
+      color: var(--white);
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .persona p {
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    @media (min-width: 640px) {
+      .persona-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (min-width: 900px) {
+      .persona-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
     .cta-section {
       text-align: center;
       padding: 60px 0 80px;
@@ -349,11 +419,23 @@
       </div>
     </section>
 
-    <!-- Testimonial -->
-    <section style="padding: 36px 0 0; text-align: center;">
+    <!-- Testimonials -->
+    <section style="padding: 48px 0 0;">
       <div class="container">
-        <blockquote style="font-size: 1.25rem; font-style: italic; color: var(--text); font-weight: 500; letter-spacing: -0.01em; margin: 0;">"The tool I wish I had 20 years ago."</blockquote>
-        <p style="font-size: 0.875rem; color: var(--text-muted); margin-top: 10px;">— Diamond Wholesaler</p>
+        <div class="testimonials-row">
+          <div class="testimonial">
+            <blockquote>"I saved thousands on my engagement ring — I knew exactly what the diamond was worth before negotiating."</blockquote>
+            <p class="testimonial-author">— Anthony</p>
+          </div>
+          <div class="testimonial">
+            <blockquote>"I was so happy to finally find out what my grandmother's diamond is actually worth. Easy and instant."</blockquote>
+            <p class="testimonial-author">— Jill</p>
+          </div>
+          <div class="testimonial">
+            <blockquote>"The tool I wish I had 20 years ago."</blockquote>
+            <p class="testimonial-author">— Diamond Wholesaler</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -365,19 +447,19 @@
         <div class="phone-row">
           <div>
             <div class="phone-frame">
-              <img src="/assets/screenshots/specs-analysis.png" alt="Diamond specs analysis showing color, clarity, depth, and table ratings" width="660" height="1434" loading="lazy">
+              <img src="/assets/screenshots/specs-analysis.png" alt="Diamond specs analysis showing color, clarity, depth, and table ratings" width="660" height="1434" loading="lazy" decoding="async" fetchpriority="low">
             </div>
             <p class="phone-label">Specs Analysis</p>
           </div>
           <div>
             <div class="phone-frame">
-              <img src="/assets/screenshots/price-analysis.png" alt="Diamond price analysis with fair value, market range, and price breakdown" width="660" height="1434" loading="lazy">
+              <img src="/assets/screenshots/price-analysis.png" alt="Diamond price analysis with fair value, market range, and price breakdown" width="660" height="1434" loading="lazy" decoding="async" fetchpriority="low">
             </div>
             <p class="phone-label">Price Analysis</p>
           </div>
           <div>
             <div class="phone-frame">
-              <img src="/assets/screenshots/clarity-analysis.png" alt="Clarity analysis showing inclusion types and expert verdict" width="660" height="1434" loading="lazy">
+              <img src="/assets/screenshots/clarity-analysis.png" alt="Clarity analysis showing inclusion types and expert verdict" width="660" height="1434" loading="lazy" decoding="async" fetchpriority="low">
             </div>
             <p class="phone-label">Clarity Analysis</p>
           </div>
@@ -417,6 +499,48 @@
             <div class="card-icon">&#x1F4DD;</div>
             <h3>Diamond &amp; Engagement Ring Appraisal</h3>
             <p>Get a professional diamond appraisal for insurance, engagement ring appraisal for resale, or a valuation report for personal records — all from your iPhone.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- Who it's for -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Who it's for</h2>
+        <p class="section-subtitle">Whether you're buying, selling, or insuring — DiamondCheck AI gives you the data you need.</p>
+        <div class="persona-grid">
+          <div class="persona">
+            <span class="persona-icon">&#x1F48D;</span>
+            <h3>Engagement Ring Shoppers</h3>
+            <p>Shopping for a diamond? Scan the GIA certificate before you buy to verify fair pricing and avoid overpaying.</p>
+          </div>
+          <div class="persona">
+            <span class="persona-icon">&#x1F50E;</span>
+            <h3>Diamond Buyers</h3>
+            <p>Purchasing a loose diamond for investment or setting? Compare pricing against live market data and get an instant second opinion.</p>
+          </div>
+          <div class="persona">
+            <span class="persona-icon">&#x1F4B0;</span>
+            <h3>Sellers &amp; Resellers</h3>
+            <p>Know your diamond's true market value before selling. Get an accurate resale valuation based on current Rapaport pricing.</p>
+          </div>
+          <div class="persona">
+            <span class="persona-icon">&#x1F48E;</span>
+            <h3>Jewelers &amp; Dealers</h3>
+            <p>Speed up evaluations with instant certificate scanning and market analysis. Built by a wholesaler, for the trade.</p>
+          </div>
+          <div class="persona">
+            <span class="persona-icon">&#x1F3E0;</span>
+            <h3>Estate &amp; Inheritance</h3>
+            <p>Inherited a diamond? Find out what it's worth in minutes — for probate, insurance, or deciding whether to keep or sell.</p>
+          </div>
+          <div class="persona">
+            <span class="persona-icon">&#x1F6E1;</span>
+            <h3>Insurance Documentation</h3>
+            <p>Need a diamond appraisal for insurance? Get a market-based valuation with all the specs your insurer requires.</p>
           </div>
         </div>
       </div>
@@ -517,6 +641,7 @@
       <div class="container">
         <div class="footer-inner">
           <div class="footer-links">
+            <a href="/guides/">Guides</a>
             <a href="/privacy/">Privacy Policy</a>
             <a href="/support/">Support</a>
           </div>

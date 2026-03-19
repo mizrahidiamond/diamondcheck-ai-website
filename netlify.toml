@@ -1,6 +1,13 @@
 [build]
   publish = "."
 
+# Redirect www to non-www (preserve SEO link equity)
+[[redirects]]
+  from = "https://www.diamondcheck-ai.com/*"
+  to = "https://diamondcheck-ai.com/:splat"
+  status = 301
+  force = true
+
 # Serve AASA with correct content-type (required by Apple)
 [[headers]]
   for = "/.well-known/apple-app-site-association"
